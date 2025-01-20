@@ -5,13 +5,11 @@ import DeleteButton from "./DeleteButton"
 
 export const dynamicParams = true
 
-type Props = {
-  params: Promise<{ id: string }>
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
-}
-
-export async function generateMetadata({ params }: Props){
-  const id = (await params).id
+export async function generateMetadata(props: {
+  params: Promise<{ id: string }>;
+}){
+  const params = await props.params;
+  const id = params.id
 
   const supabase = createServerComponentClient({ cookies: () => cookies() })
   const {data: ticket} = await supabase

@@ -1,10 +1,10 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
-import { cookies } from "next/headers"
+import { cookies, type UnsafeUnwrappedCookies } from "next/headers";
 import Link from "next/link"
 
 async function getTickets(){
   
-  const supabase = createServerComponentClient({ cookies: () => cookies() })
+  const supabase = createServerComponentClient({ cookies: () => (cookies() as unknown as UnsafeUnwrappedCookies) })
 
   const { data,error } = await supabase
     .from("Tickets")

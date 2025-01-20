@@ -1,5 +1,5 @@
 type ticket = {
-  id:number
+  id:string
   title:string
   body:string
   priority: 'low' | 'medium' | 'high'

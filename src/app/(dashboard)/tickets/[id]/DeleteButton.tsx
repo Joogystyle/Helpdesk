@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { TiDelete } from "react-icons/ti"
 
-export default function DeleteButton({ id }: {id:number}) {
+export default function DeleteButton({ id }: {id:string}) {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
 
