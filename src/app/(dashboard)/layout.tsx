@@ -1,5 +1,5 @@
 import Navbar from '@/components/Navbar'
-import { createServerComponentClient, User } from '@supabase/auth-helpers-nextjs';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import React from 'react'

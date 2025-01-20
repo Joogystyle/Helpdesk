@@ -5,7 +5,12 @@ import DeleteButton from "./DeleteButton"
 
 export const dynamicParams = true
 
-export async function generateMetadata({params,}: {params: {id:string}}){
+type Props = {
+  params: Promise<{ id: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+
+export async function generateMetadata({ params }: Props){
   const id = (await params).id
 
   const supabase = createServerComponentClient({ cookies: () => cookies() })
@@ -21,14 +26,6 @@ export async function generateMetadata({params,}: {params: {id:string}}){
 }
 
 
-/* export async function generateStaticParams(){
-  const res = await fetch('http://localhost:4000/tickets')
-
-  const tickets = await res.json()
-  return tickets.map((ticket:ticket) => ({
-    id : ticket.id
-  }))
-} */
 
 
 

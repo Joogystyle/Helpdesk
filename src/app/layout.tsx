@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
 
-//components
-import Navbar from "@/components/Navbar";
+export const dynamic = 'force-dynamic'
 
 const rubik = Rubik({subsets:['latin']})
 

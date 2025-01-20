@@ -10,7 +10,6 @@ export async function POST(request: Request){
   const ticket = await request.json()
 
   // get supabase instance
-  const c = await cookies()
   const supabase = createRouteHandlerClient({ cookies: () => cookies() })
 
   //get the current user seesion

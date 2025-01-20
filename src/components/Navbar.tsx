@@ -2,8 +2,6 @@ import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
 import Logo from './ninja.jpg'
-import { Session } from 'inspector/promises'
-import { Span } from 'next/dist/trace'
 import { User } from '@supabase/supabase-js'
 import LogoutButton from './LogoutButton'
 
