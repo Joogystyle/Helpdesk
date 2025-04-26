@@ -19,6 +19,7 @@ export default function Navbar({user}: {user:User | null}) {
       <h1>Dojo Helpdesk</h1>
       <Link href="/">Dashboard</Link>
       <Link href="/tickets">Tickets</Link>
+      <Link href="/tickets/create" className='mr-auto'>Create Ticket</Link>
       
       
       {user && <span>Hello, {user.email}</span>}
