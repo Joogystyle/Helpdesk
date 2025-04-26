@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import React from 'react';
+import { addTicket } from "../actions";
 
 
 export default function CreateForm() {
@@ -39,10 +40,11 @@ export default function CreateForm() {
   }
 
   return (
-    <form onSubmit = {handleSubmit}  className="w-1/2">
+    <form onSubmit={handleSubmit}  className="w-1/2">
       <label>
         <span>Title:</span>
         <input
+          name="title"
           required 
           type="text"
           onChange={(e) => setTitle(e.target.value)}
@@ -52,6 +54,7 @@ export default function CreateForm() {
       <label>
         <span>Title:</span>
         <textarea
+          name="body"
           required
           onChange={(e) => setBody(e.target.value)}
           value={body}
@@ -60,6 +63,7 @@ export default function CreateForm() {
       <label>
         <span>Priority:</span>
         <select 
+          name="priority"
           onChange={(e) => setPriority(e.target.value)}
           value={priority}
         >

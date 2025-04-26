@@ -8,7 +8,7 @@ export const dynamicParams = true
 export async function generateMetadata(props: {
   params: Promise<{ id: string }>;
 }){
-  const params = await props.params;
+  const params = await (props).params;
   const id = params.id
 
   const supabase = createServerComponentClient({ cookies: () => cookies() })
@@ -22,8 +22,6 @@ export async function generateMetadata(props: {
     title: `Dojo Helpdesk | ${ticket.title || "Ticket not found"}`
   }
 }
-
-
 
 
 
@@ -44,7 +42,10 @@ async function getTicket(id: string){
   return data
 }
 
-export default async function TicketDetails({params}:{params: {id:string}}) {
+export default async function TicketDetails(props: {
+  params: Promise<{ id: string }>;
+}) {
+  const params = await (props).params;
   const ticket:ticket = await getTicket( (await params).id)
 
   const supabase = createServerComponentClient({ cookies: () => cookies() })

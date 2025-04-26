@@ -2,10 +2,13 @@ import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
 import { NextResponse } from "next/server"
 
-export async function DELETE(request:Request, {params}:{params: {id:string}}){
+export async function DELETE(request:Request, props: {
+  params: Promise<{ id: string }>;
+}){
+  const params = (await props).params
   const id = (await params).id
 
-  const supabase = createRouteHandlerClient({ cookies: async () => await cookies() })
+  const supabase = createRouteHandlerClient({ cookies })
   const{ error } = await supabase 
     .from("Tickets")
     .delete()
@@ -39,3 +42,7 @@ export async function GET(request:Request, {params,}:{params: Promise<{ id: stri
     status: 200
   })
 } */
+
+
+
+
